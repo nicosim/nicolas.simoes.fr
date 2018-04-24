@@ -39,13 +39,13 @@ export const person = {
       logo:'images/sbs.png',
       startDate: '11/2015',
       endDate: '09/2018',
-      summary: '',
+      summary: 'Mon alternance à Sopra Banking Software s\'est déroulé au sein de l\'agence R&D Card FO à Meudon La Forêt. L\'activité principale de l\'agence est de contribuer au développement du progiciel monétique Stecard.\n\nJ\'ai débuté mon alternance au sein de l\'une des équipes R&D et ma mission consistait en la maintenance corrective de la partie IHM du progiciel développée en Java avec le Framework Struts 2.\n\nA partir de Septembre 2016, j\'étais affecté à l\'équipe Personal Services gérant le compte client Arkea. Mes missions s\'était progressivement dirigé vers des développements en C pour réaliser des évolutions sur la partie temps réel du progiciel. Les évolutions auxquels j\'ai contribué sont par exemple :\n- Mise à jour du serveur d\'application WebLogic d\'une version 11g vers une version 12c\n- Gestion d\'un nouveau Web Service « nouvelle vague » : Max, l\'assistant personnel financier sur mobile du Crédit Mutuel Arkéa\n- Gestion d\'un nouveau type de commerce : Les Payment Facilitator (facilitateur de paiement) tel que Amazon\n- Gestion des Digital Wallet Operator : Paiement d\'un bien ou service avec un portefeuille électronique comme par exemple : Apple Pay',
       highlights: [
-        'Assesseur au bureau de vote des DP',
         'Etre force de proposition',
         'Comprendre le besoin client',
         'Développer sur différents languages',
         'Rédiger des documents techniques',
+        'Assesseur au bureau de vote des DP',
       ],
     },
     {
@@ -55,7 +55,7 @@ export const person = {
       logo:'images/ratp.png',
       startDate: '04/2015',
       endDate: '06/2015',
-      summary: '',
+      summary: 'Durant mon stage de fin de DUT au sein de la RATP, deux missions m\'ont été confiées.\n\nLa première mission était de mettre en place un intranet de suivi des grévistes afin de remplacer l\'outil actuel qui consistait en une arborescence de fichiers Excel. L\'application développée en C# avec le framework ASP.NET permet de saisir les informations sur une grève et d\'exporter le résultat dans un fichier PDF.\n\nLa seconde mission qui m\'a été confiée consistait en la correction de plusieurs anomalies sur l\'outil de gestion des chantiers sur les escalators. L\'outil est développé en Java et permet de saisir les informations sur un chantier ainsi que les pièces nécessaire à la maintenance de l\'équipement.',
       highlights: [
         'Créer un intranet en respectant un cahier des charges',
         'Apprendre un nouveau language (C# avec ASP.NET)',
