@@ -22,12 +22,26 @@ const styles = {
     },
 }
 
-const Interest = () => 
-    <GridList cellHeight='auto' cols={person.interests.length}>
+const Interest = (props) => 
+{
+    if (props.isMobile)
+    {
+        return <MobileView/>;
+    }
+    else {
+        return <DesktopView/>;
+    }
+}
+
+const DesktopView = () => 
+(
+    <GridList 
+        cellHeight='auto' 
+        cols={person.interests.length}>
     {person.interests.map(interest => 
-        <GridTile key={interest}>
+        <GridTile key={interest.name}>
             <h3>{interest.name}</h3>
-                <Image key="avatar" src={interest.picture} width={200} centered fluid/>
+                <Image src={interest.picture} width={200} centered fluid/>
             <div style={styles.wrapper}>
                 {interest.keywords.map(keyword =>
                     <Chip key={keyword} style={styles.chip}>{keyword}</Chip> 
@@ -36,6 +50,29 @@ const Interest = () =>
         </GridTile>
     )}
     </GridList>
+)
+
+const MobileView = () => 
+(
+    person.interests.map(interest => 
+        <GridList 
+            key={interest.name} 
+            cellHeight='auto' cols={2}
+            style={{
+                marginBottom : '5%',
+              }}>
+            <GridTile>
+                <h3>{interest.name}</h3>
+                <Image src={interest.picture} width={200} centered fluid/>
+            </GridTile>
+            <GridTile style={styles.wrapper}>
+                {interest.keywords.map(keyword =>
+                    <Chip key={keyword} style={styles.chip}>{keyword}</Chip> 
+                )}
+            </GridTile>
+        </GridList>
+    )
+)
 
 const InterestTitle = () =>
 (

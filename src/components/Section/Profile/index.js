@@ -10,23 +10,30 @@ import {MdCall, MdMail, MdWeb, MdPlace} from 'react-icons/lib/md'
 
 import {GridList, GridTile} from 'material-ui';
 
-const Profile = () => 
+const Profile = (props) => 
+{
+    if (props.isMobile)
+    {
+        return <MobileView/>;
+    }
+    else {
+        return <DesktopView/>;
+    }
+}
+
+const DesktopView = () =>
 (
     <GridList cellHeight='auto' cols={4}>
         <GridTile cols={3}>
-            <h3>Présentation</h3>
-            {person.basics.summary.map(line => 
-                (
-                <p key={line}>{line}</p>
-                )
-            )
-            }
-            <GridList cellHeight='auto'>
-                <GridTile>
+            <GridList cellHeight='auto' cols={3}>
+                <GridTile cols={3}>
+                    {getPresentation()}
+                </GridTile>
+                <GridTile cols={2}>
                     {getContacts()}
                 </GridTile>
-                <GridTile>
-                    {getProfiles()}
+                <GridTile cols={1}>
+                    {getNetwork()}
                 </GridTile>
             </GridList>
         </GridTile>
@@ -36,20 +43,55 @@ const Profile = () =>
     </GridList>
 )
 
+const MobileView = () =>
+(
+    <GridList cellHeight='auto' cols={2}>
+        <GridTile>
+            <GridList cellHeight='auto' cols={1}>
+                <GridTile>
+                    {getPresentation()}
+                </GridTile>
+                <GridTile>
+                    {getNetwork()}
+                </GridTile>
+            </GridList>
+        </GridTile>
+        <GridTile>
+            <Image key="avatar" src={person.basics.picture} width={200} circular/>
+        </GridTile>
+        <GridTile cols={2}>
+            {getContacts()}
+        </GridTile>
+    </GridList>
+)
+
+const getPresentation = () => 
+(
+    <div>
+        <h3>Présentation</h3>
+        {person.basics.summary.map(line => 
+            (
+            <p key={line}>{line}</p>
+            )
+        )
+        }
+    </div>
+) 
+
 const getContacts = () =>
 (
     <div>
         <h3>Contacts</h3>
-        <p><MdCall/> {person.basics.phone}</p>
-        <MdWeb/> <a href={person.basics.website}>{person.basics.website}</a>
-        <p><MdMail/> {person.basics.email}</p>
-        <p><MdPlace/> {person.basics.location.address + ", " + person.basics.location.city
+        <div><MdCall/> {person.basics.phone}</div>
+        <div><MdWeb/> <a href={person.basics.website}>{person.basics.website}</a></div>
+        <div><MdMail/> {person.basics.email}</div>
+        <div><MdPlace/> {person.basics.location.address + ", " + person.basics.location.city
             + ", " + person.basics.location.countryCode}
-        </p>
+        </div>
     </div>
 )
 
-const getProfiles = () =>
+const getNetwork = () =>
 (
     <div>
         <h3>Réseaux</h3>
@@ -77,9 +119,7 @@ const getLogo = (network) => {
 
 const ProfileTitle = () =>
 (
-    <div>
-        <h2>{person.basics.name} - {person.basics.label}</h2>
-    </div>
+    <h2>{person.basics.name} - {person.basics.label}</h2>
 )
 
 export {Profile, ProfileTitle};

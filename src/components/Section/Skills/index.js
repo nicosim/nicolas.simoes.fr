@@ -5,7 +5,7 @@ import { ResponsiveContainer, RadarChart, Radar, Tooltip} from 'recharts';
 
 import {GridList, GridTile} from 'material-ui';
 
-import { Image } from 'semantic-ui-react'
+import { Image } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
 import { person } from '../../../datas/person';
@@ -23,13 +23,24 @@ class Skills extends Component {
         if (active) {
             this.setState({activeSkill:label});
         }
-        return;
+        return null;
     }
 
     findSkill = (label) =>
     {
       return person.skills.find(skill => {return skill.name === label;});
     }
+
+    displayActiveSkill = (activeSkill) =>
+    (
+        <div>
+            {activeSkill !==''?
+                this.displaySkill(activeSkill)
+            :
+                this.displaySkill(person.skills[0].name)
+            }
+        </div>
+    )
 
     displaySkill = (label) =>
     {
@@ -63,9 +74,22 @@ class Skills extends Component {
         );
     }
 
-    render() {
+    render() 
+    {
         const {activeSkill} = this.state;
         return (
+            <div>
+                {this.props.isMobile?
+                    this.MobileView(activeSkill)
+                :
+                    this.DesktopView(activeSkill)
+                }
+            </div>
+        );
+    }
+
+    DesktopView = (activeSkill) =>
+    (
         <GridList cellHeight='auto' cols={5}>
             <GridTile>
                 <Image key="avatar" src="images/detecteur.jpg" width={400}/>
@@ -74,16 +98,22 @@ class Skills extends Component {
                 {this.displaySkillsChart()}
             </GridTile>
             <GridTile cols={2}>
-                {activeSkill !==''?
-                    this.displaySkill(activeSkill)
-                :
-                    this.displaySkill(person.skills[0].name)
-                }
+                {this.displayActiveSkill(activeSkill)}
             </GridTile>
         </GridList>
-    
-    );
-    }
+    )
+
+    MobileView = (activeSkill)  =>
+    (
+        <GridList cols={1}>
+            <GridTile>
+                {this.displaySkillsChart()}
+            </GridTile>
+            <GridTile>
+                {this.displayActiveSkill(activeSkill)}
+            </GridTile>
+        </GridList>   
+    )
 };
 
 const SkillsTitle = () =>

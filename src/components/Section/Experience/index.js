@@ -16,7 +16,39 @@ const style = {
       padding:8,
     },
 }
+
+const Experience = (props) => 
+{
+    if (props.isMobile)
+    {
+        return <MobileView/>;
+    }
+    else {
+        return <DesktopView/>;
+    }
+}
+
+const DesktopView = () => 
+(
+    <GridList cellHeight='auto' cols={4}>
+        <GridTile 
+            cols={1}>
+            <Image key="education" src="images/work experiences.jpg" height={800}/>
+        </GridTile>
+        <GridTile
+            cols={3}>
+        {displayTimeLine()}
+        </GridTile>
+    </GridList>
+)
+
+const MobileView = () => 
+(
+    <div>{displayTimeLine()}</div>
+)
+
 const displayDetails = () =>
+(
     person.work.map(work =>
         <VerticalTimelineElement
             key={work.company}
@@ -39,25 +71,14 @@ const displayDetails = () =>
             )}
             </List>
         </VerticalTimelineElement>
-    );
+    )
+)
 
 const displayTimeLine = () =>
-    <VerticalTimeline>
-        {displayDetails()}
-    </VerticalTimeline>
-
-const Experience = () => 
 (
-    <GridList cellHeight='auto' cols={4}>
-        <GridTile 
-            cols={1}>
-            <Image key="education" src="images/work experiences.jpg" height={800}/>
-        </GridTile>
-        <GridTile
-            cols={3}>
-        {displayTimeLine()}
-        </GridTile>
-    </GridList>
+        <VerticalTimeline>
+            {displayDetails()}
+        </VerticalTimeline>
 )
 
 const ExperienceTitle = () =>
