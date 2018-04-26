@@ -29,7 +29,7 @@ class Experience extends Component {
         <GridList cellHeight='auto' cols={4}>
             <GridTile 
                 cols={1}>
-                <Image key="education" src="images/work experiences.jpg" height={800}/>
+                <Image key="education" src="images/work experiences.jpg" height={900} />
             </GridTile>
             <GridTile
                 cols={3}>

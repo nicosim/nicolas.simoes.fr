@@ -92,7 +92,7 @@ class Skills extends Component {
     (
         <GridList cellHeight='auto' cols={5}>
             <GridTile>
-                <Image key="avatar" src="images/detecteur.jpg" width={400}/>
+                <Image key="avatar" src="images/detecteur.jpg" centered fluid rounded/>
             </GridTile>
             <GridTile cols={2}>
                 {this.displaySkillsChart()}
@@ -106,6 +106,9 @@ class Skills extends Component {
     MobileView = (activeSkill)  =>
     (
         <GridList cols={1}>
+            <GridTile>
+                <Image key="avatar" src="images/detecteur.jpg" centered rounded size='medium'/>
+            </GridTile>
             <GridTile>
                 {this.displaySkillsChart()}
             </GridTile>

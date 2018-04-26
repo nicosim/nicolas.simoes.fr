@@ -69,12 +69,9 @@ const getPresentation = () =>
 (
     <div>
         <h3>Présentation</h3>
-        {person.basics.summary.map(line => 
-            (
-            <p key={line}>{line}</p>
-            )
-        )
-        }
+        {person.basics.summary.split('\n').map((item, key) => {
+                  return <span key={key}>{item}<br/></span>
+        })}
     </div>
 ) 
 

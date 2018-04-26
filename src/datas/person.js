@@ -4,13 +4,11 @@ export const person = {
   basics: {
     name: 'Nicolas Simoes',
     label: 'Ingénieur Logiciel',
-    picture: 'https://api.iseplive.fr/storage/student/91/9146.jpg',
+    picture: 'images/Nicolas_Simoes.jpg',
     email: 'nico93simo@hotmail.fr',
     phone: '06 38 61 88 43',
     website: 'http://nicolas-simoes.fr',
-    summary:[
-      'Bientôt diplômé de l\'ISEP en tant qu\'ingénieur logiciel avec une spécialisation dans le web et un goût prononcé pour les nouvelles technologies.',
-      'Je suis disponible à partir du mois d\'octobre pour un poste en CDI.'],
+    summary: 'Bientôt diplômé de l\'ISEP en tant qu\'ingénieur logiciel avec une spécialisation dans le web et un goût prononcé pour les nouvelles technologies.\n\nJe suis disponible à partir du mois d\'octobre pour un poste en CDI.',
     location: {
       address: "112 avenue du général De Gaulle",
       postalCode: "93330",
@@ -73,8 +71,6 @@ export const person = {
       endDate: '2018',
       summary:'',
       highlights: [
-        '1,000 pounds of food donations', 
-        'Event of the Century'
       ],
     },
   ],
@@ -151,7 +147,7 @@ export const person = {
       name: 'Esprit critique',
       level: 75,
       keywords: [
-        'Comprendre fonctionnement actuel de l\'application',
+        'Comprendre le fonctionnement actuel de l\'application',
         'Comprendre les apports et les défauts des solutions techniques proposées',
         'Apprendre de ses erreurs',
       ],

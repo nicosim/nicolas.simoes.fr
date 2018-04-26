@@ -41,7 +41,7 @@ const DesktopView = () =>
     {person.interests.map(interest => 
         <GridTile key={interest.name}>
             <h3>{interest.name}</h3>
-                <Image src={interest.picture} width={200} centered fluid/>
+                <Image src={interest.picture} width={200} centered fluid rounded/>
             <div style={styles.wrapper}>
                 {interest.keywords.map(keyword =>
                     <Chip key={keyword} style={styles.chip}>{keyword}</Chip> 
@@ -57,13 +57,13 @@ const MobileView = () =>
     person.interests.map(interest => 
         <GridList 
             key={interest.name} 
-            cellHeight='auto' cols={2}
+            cellHeight='auto' cols={1}
             style={{
                 marginBottom : '5%',
               }}>
             <GridTile>
                 <h3>{interest.name}</h3>
-                <Image src={interest.picture} width={200} centered fluid/>
+                <Image src={interest.picture} width={200} centered fluid rounded/>
             </GridTile>
             <GridTile style={styles.wrapper}>
                 {interest.keywords.map(keyword =>

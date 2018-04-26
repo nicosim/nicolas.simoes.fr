@@ -10,9 +10,12 @@ const style = {
     fontSize:14,
     padding:8,
   },
-  dialogContent: {
+  dialogContainer: {
       width:'80%',
       maxWidth: 'none',
+  },
+  dialogContent:{
+    color:'black',
   }
 }
 
@@ -43,21 +46,22 @@ class WorkDetails extends Component {
 
   displayWorkDetails = (work, isDialog) =>
   (
-    <div>
+    <div style={style.dialogContent}>
         <h3 className="vertical-timeline-element-title">{work.position}</h3>
         <h4 className="vertical-timeline-element-subtitle">{work.company}</h4>
         <a href={work.website}>{work.website}</a>
         
         {(isDialog || work.summary.length<SUMMARY_PREVIEW_LENGTH)?
-            <p><br/>
-            {work.summary.split('\n').map((item, key) => {
-                return <span key={key}>{item}<br/></span>
-            })}</p>
+            <div><br/>
+              {work.summary.split('\n').map((item, key) => {
+                  return <span key={key}>{item}<br/></span>
+              })}
+            </div>
         :
-            <p>{work.summary.substring(0,SUMMARY_PREVIEW_LENGTH)+'...'}
+            <div>{work.summary.substring(0,SUMMARY_PREVIEW_LENGTH)+'...'}
             <br/>
             <RaisedButton label="En savoir plus" onClick={this.handleOpen}/>
-            </p>
+            </div>
         }
         <List>
         {work.highlights.map(h=>
@@ -79,7 +83,7 @@ class WorkDetails extends Component {
             open={this.state.open}
             onRequestClose={this.handleClose}
             autoScrollBodyContent={true}
-            contentStyle={style.dialogContent}
+            contentStyle={style.dialogContainer}
         >
             {this.displayWorkDetails(work, true)}
         </Dialog>

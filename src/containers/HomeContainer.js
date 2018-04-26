@@ -26,9 +26,17 @@ const OVERLAY_STYLE = {
   zIndex: 1,
 }
 
-const CONTAINER_STYLE = {
+const DESKTOP_CONTAINER_STYLE = {
   backgroundColor: 'rgb(245, 245, 245)',
   paddingTop:80,
+  paddingBottom:40,
+  minHeight: '80vh',
+  width: '100%',
+}
+
+const MOBILE_CONTAINER_STYLE = {
+  backgroundColor: 'rgb(245, 245, 245)',
+  paddingTop:40,
   paddingBottom:40,
   minHeight: '80vh',
   width: '100%',
@@ -53,6 +61,18 @@ class HomeContainer extends Component {
   handleWindowSizeChange = () => {
     this.setState({ width: window.innerWidth });
   };
+
+  getContainerStyle = (isMobile) => 
+  {
+    if (isMobile)
+    {
+      return MOBILE_CONTAINER_STYLE;
+    }
+    else 
+    {
+      return DESKTOP_CONTAINER_STYLE;
+    }
+  }
   
   render() {
   const { width } = this.state;
@@ -61,7 +81,7 @@ class HomeContainer extends Component {
       <div style={{ position: 'relative'}}>
         <div style={BACKGROUND_STYLE}></div>
         <div style={OVERLAY_STYLE}> </div>
-        <Card style={CONTAINER_STYLE}>
+        <Card style={this.getContainerStyle(isMobile)}>
           <Section type="Profile" isMobile={isMobile}/>
           <Section type="Experience" isMobile={isMobile}/>
           <Section type="Education" isMobile={isMobile}/>
